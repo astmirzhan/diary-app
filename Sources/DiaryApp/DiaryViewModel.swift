@@ -10,8 +10,12 @@ final class DiaryViewModel: ObservableObject {
     @Published var errorMessage: String?
 
     private let store = EntryStore()
+    private let graphStore: GraphStore
+    private var graph: DiaryGraph
 
     init() {
+        graphStore = GraphStore(directory: store.directory)
+        graph = (try? graphStore.load()) ?? DiaryGraph()
         refresh()
     }
 
@@ -65,6 +69,8 @@ final class DiaryViewModel: ObservableObject {
         entry.body = draft
         do {
             try store.save(entry)
+            GraphExtractor.update(graph: &graph, entry: entry)
+            try graphStore.save(graph)
             if let index = entries.firstIndex(where: { $0.id == entry.id }) {
                 entries[index] = entry
             }

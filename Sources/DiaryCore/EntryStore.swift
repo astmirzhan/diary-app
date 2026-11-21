@@ -7,13 +7,21 @@ public final class EntryStore: @unchecked Sendable {
         if let directory {
             self.directory = directory
         } else {
-            let applicationSupport = FileManager.default.urls(
-                for: .applicationSupportDirectory,
-                in: .userDomainMask
-            )[0]
-            self.directory = applicationSupport
+            if let iCloudDirectory = FileManager.default.url(
+                forUbiquityContainerIdentifier: nil
+            )?.appendingPathComponent("Documents", isDirectory: true)
                 .appendingPathComponent("DiaryApp", isDirectory: true)
-                .appendingPathComponent("entries", isDirectory: true)
+                .appendingPathComponent("entries", isDirectory: true) {
+                self.directory = iCloudDirectory
+            } else {
+                let applicationSupport = FileManager.default.urls(
+                    for: .applicationSupportDirectory,
+                    in: .userDomainMask
+                )[0]
+                self.directory = applicationSupport
+                    .appendingPathComponent("DiaryApp", isDirectory: true)
+                    .appendingPathComponent("entries", isDirectory: true)
+            }
         }
 
         try? FileManager.default.createDirectory(

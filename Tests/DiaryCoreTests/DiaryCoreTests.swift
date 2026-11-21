@@ -29,4 +29,27 @@ final class DiaryCoreTests: XCTestCase {
         try store.delete(entry)
         XCTAssertTrue(try store.load().isEmpty)
     }
+
+    func testGraphExtractorAddsPersonAndProjectAndUnresolvedMention() {
+        var graph = DiaryGraph()
+        GraphExtractor.addProject("Ayeka", graph: &graph)
+        let firstEntry = DiaryEntry(body: "Бекарыс помог с Ayeka.")
+        GraphExtractor.update(graph: &graph, entry: firstEntry)
+
+        XCTAssertTrue(graph.entities.contains { $0.name == "Бекарыс" && $0.kind == .person })
+        XCTAssertTrue(graph.entities.contains { $0.name == "Ayeka" && $0.kind == .project })
+        XCTAssertTrue(graph.relations.contains { $0.entryID == firstEntry.id })
+    }
+
+    func testGraphStoreRoundTrip() throws {
+        let temporaryDirectory = FileManager.default.temporaryDirectory
+            .appendingPathComponent(UUID().uuidString, isDirectory: true)
+        let store = GraphStore(directory: temporaryDirectory)
+        let graph = DiaryGraph(
+            entities: [DiaryEntity(name: "Бекарыс", kind: .person)]
+        )
+
+        try store.save(graph)
+        XCTAssertEqual(try store.load(), graph)
+    }
 }

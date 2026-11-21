@@ -4,7 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "diary-app",
-    platforms: [.macOS(.v14)],
+    platforms: [.iOS(.v17), .macOS(.v14)],
     products: [
         .library(name: "DiaryCore", targets: ["DiaryCore"]),
         .executable(name: "DiaryApp", targets: ["DiaryApp"])

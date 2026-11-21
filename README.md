@@ -16,6 +16,7 @@ file-based Markdown entry store.
 Requirements:
 
 - macOS 14 or later
+- iOS 17 or later
 - Swift 5.9 or later
 
 ```bash
@@ -25,8 +26,6 @@ swift test
 
 ## Storage
 
-Entries are stored as Markdown files in:
-
-`~/Library/Application Support/DiaryApp/entries`
-
+When iCloud is available, entries are stored in the app's iCloud Documents
+container. Otherwise, the app falls back to local application support storage.
 The format is designed to remain readable in Obsidian.
