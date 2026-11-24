@@ -9,6 +9,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Status-Early_prototype-E4A11B?style=for-the-badge" alt="Early prototype" />
   <img src="https://img.shields.io/badge/License-MIT-1F1B16?style=for-the-badge" alt="MIT license" />
+  <a href="https://github.com/astmirzhan/diary-app/actions/workflows/test.yml"><img src="https://img.shields.io/github/actions/workflow/status/astmirzhan/diary-app/test.yml?branch=main&style=for-the-badge&label=Tests" alt="Tests" /></a>
 </p>
 
 <p align="center">
