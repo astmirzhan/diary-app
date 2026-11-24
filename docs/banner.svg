@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="400" viewBox="0 0 1280 400">
+  <rect width="1280" height="400" rx="28" fill="#F6F2EA"/>
+  <g font-family="'New York', Georgia, 'Times New Roman', serif" fill="#1F1B16">
+    <text x="72" y="160" font-size="80" font-weight="700">diary</text>
+    <text x="74" y="214" font-size="30" fill="#4A4238">A private AI diary for projects and life.</text>
+  </g>
+  <g font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" fill="#6B6157">
+    <text x="74" y="262">Local-first · plain Markdown · SwiftUI</text>
+  </g>
+  <g>
+    <rect x="760" y="56" width="448" height="288" rx="18" fill="#fff" stroke="#E4DCCD" stroke-width="2"/>
+    <circle cx="790" cy="84" r="7" fill="#FF5F57"/><circle cx="812" cy="84" r="7" fill="#FEBC2E"/><circle cx="834" cy="84" r="7" fill="#28C840"/>
+    <text x="1180" y="90" font-family="ui-monospace, Menlo, monospace" font-size="15" fill="#A09585" text-anchor="end">2026-11-21-093000.md</text>
+    <g font-family="ui-monospace, Menlo, Consolas, monospace" font-size="18">
+      <text x="790" y="136" fill="#A09585">---</text>
+      <text x="790" y="164" fill="#7A6E60">id: 6F1C…A92E</text>
+      <text x="790" y="192" fill="#7A6E60">created: 2026-11-21T09:30:00Z</text>
+      <text x="790" y="220" fill="#A09585">---</text>
+    </g>
+    <g font-family="'New York', Georgia, serif" font-size="21" fill="#1F1B16">
+      <text x="790" y="262">Went for a run with Alex this morning.</text>
+      <text x="790" y="294">Tired, but the new feature finally works.</text>
+    </g>
+  </g>
+</svg>
